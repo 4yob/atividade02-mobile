@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import * as SecureStore from "expo-secure-store";
 
 export default function ProfileScreen({ route }) {
     return (
+            <ScrollView style={styles.scroll}>
         <View style={styles.container}>
             <Text style={styles.titulo}>Alejandra Barros</Text>
             <Image source={require("../assets/img-profile.jpg")} style={styles.pic}/>
@@ -35,11 +36,14 @@ export default function ProfileScreen({ route }) {
                 </View>
             </View>
         </View>
+            </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        display: "flex",
+        flexDirection: "column",
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
@@ -47,6 +51,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 25,
         gap: 20,
         fontFamily: "Montserrat",
+    },
+    scroll: {
+        width: "100%",
+        height: "100%",
     },
     titulo: {
         fontSize: 28,
@@ -81,7 +89,7 @@ const styles = StyleSheet.create({
     block2: {
         flexDirection: "row",
         justifyContent: "center",
-        gap: 20,
+        gap: 10,
         padding: 20,
         flexWrap: "wrap",
     },
